@@ -1,0 +1,17 @@
+{
+    "name":"John",
+    "department":{
+        "id":"1",
+        "name":"Sales"
+    },
+    "roles":[
+        {
+           "nome":"product",
+           "valor":"write" 
+        },
+        {
+           "nome":"customer",
+           "valor":"read" 
+        }
+    ]
+}

@@ -1,0 +1,108 @@
+#Config
+statements:
+# test<name>
+- name: test.*
+  className: io.github.resttestcases.statements.TestStatement
+  parents:
+  - io.github.resttestcases.core.statements.RootStatement
+  
+# test<name>.name
+- name: name
+  className: io.github.resttestcases.statements.TestNameStatement
+  parents:
+  - io.github.resttestcases.statements.TestStatement
+  
+# test<name>.description
+- name: description
+  className: io.github.resttestcases.statements.TestDescriptionStatement
+  parents:
+  - io.github.resttestcases.statements.TestStatement
+  
+# test<name>.request<name>
+- name: request.*
+  className: io.github.resttestcases.statements.request.RequestStatement
+  parents:
+  - io.github.resttestcases.statements.TestStatement
+  
+# test<name>.<Request Method>
+- name: GET|POST|PUT|DELETE|OPTIONS
+  className: io.github.resttestcases.statements.request.RequestMethodPathStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.pathParams
+- name: pathParams
+  className: io.github.resttestcases.statements.request.RequestPathParamsStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.headers
+- name: headers
+  className: io.github.resttestcases.statements.request.RequestHeadersStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.contentType
+- name: contentType
+  className: io.github.resttestcases.statements.request.RequestContentTypeStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.accept
+- name: accept
+  className: io.github.resttestcases.statements.request.RequestAcceptStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.queryParams
+- name: queryParams
+  className: io.github.resttestcases.statements.request.RequestQueryParamsStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.formParams
+- name: formParams
+  className: io.github.resttestcases.statements.request.RequestFormParamsStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.multiPart
+- name: multiPart
+  className: io.github.resttestcases.statements.MultiPartStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.multiPartFiles
+- name: multiPartFiles
+  className: io.github.resttestcases.statements.request.RequestMultiPartFilesStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.body
+- name: body
+  className: io.github.resttestcases.statements.request.RequestBodyStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement    
+  
+  
+  
+# test<name>.<Request Method>.response
+- name: response
+  className: io.github.resttestcases.statements.response.ResponseStatement
+  parents:
+  - io.github.resttestcases.statements.request.RequestStatement
+# test<name>.<Request Method>.response.status
+- name: status
+  className: io.github.resttestcases.statements.response.ResponseStatusStatement
+  parents:
+  - io.github.resttestcases.statements.response.ResponseStatement
+  
+ # test<name>.<Request Method>.response.headers
+- name: headers
+  className: io.github.resttestcases.statements.response.ResponseHeadersStatement
+  parents:
+  - io.github.resttestcases.statements.response.ResponseStatement
+  
+# test<name>.<Request Method>.response.body
+- name: body(\[.*\])?
+  className: io.github.resttestcases.statements.response.ResponseBodyStatement
+  parents:
+  - io.github.resttestcases.statements.response.ResponseStatement
+  
+# test<name>.<Request Method>.response.bodyJson
+- name: bodyJson(\[.*\])?
+  className: io.github.resttestcases.statements.response.ResponseBodyJsonStatement
+  parents:
+  - io.github.resttestcases.statements.response.ResponseStatement
+  

@@ -1,0 +1,19 @@
+{
+    "name":"John",
+    "department":{
+        "id":"1",
+        "name":"Sales"
+    },
+    "roles":[
+        "!inOrder;size:4",
+        {
+           "nome":"Product",
+           "valor":"write" 
+        },
+        {
+           "nome":"Customer",
+           "valor":"read" 
+        },
+        "..."
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "name":"John",
+    "department":{
+        "id":"1",
+        "name":"?"
+    },
+    "roles":[
+        {
+           "nome":"product",
+           "valor":"?" 
+        },
+        {
+           "...":"?"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+= CHANGELOG
+
+- *v1.0.0* - Initial version 
+
+* Core 
+* Implemented Statements:
+** Test
+*** TestDescription
+*** TestName
+*** Request
+**** RequestAccept
+**** RequestBody
+**** RequestContentType
+**** RequestFormParams
+**** RequestHeaders
+**** RequestMethodPath
+**** RequestMultiPart
+**** RequestMultiPartFiles
+**** RequestPathParams
+**** RequestQueryParams
+**** Response
+***** ResponseBody
+***** ResponseBodyJson
+***** ResponseHeaders
+***** ResponseStatus

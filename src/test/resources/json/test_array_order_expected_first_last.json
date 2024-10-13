@@ -1,0 +1,14 @@
+[
+    "!inOrder",
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+    },
+    "...",
+    {
+        "id": 6,
+        "name": "Charlie Wilson",
+        "email": "charlie.wilson@example.com"
+    }
+]

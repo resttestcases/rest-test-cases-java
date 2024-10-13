@@ -1,0 +1,29 @@
+[
+    "!inOrder",
+    {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com"
+    },
+    {
+        "id": 3,
+        "name": "Bob Johnson",
+        "email": "bob.johnson@example.com"
+    },
+    "...",
+    {
+        "id": 7,
+        "name": "Daniel Smith",
+        "email": "daniel.smith@example.com"
+    },
+    {
+        "id": 8,
+        "name": "Tody Smith",
+        "email": "tody.smith@example.com"
+    }
+]

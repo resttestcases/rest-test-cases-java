@@ -1,0 +1,20 @@
+{
+	"request": {
+		"url": "/books/1/?titulo=Silmarilion&tags=fantasia&tags=medieval",
+		"method": "GET",
+		"headers": {
+			"Content-Type": {"equalTo":"application/json; charset=UTF-8"},
+			"Authorization":{"equalTo":"Basic Ym9zY236Ym9zY28="},
+			"referer": {"equalTo":"http://localhost:8080/api"}
+		}
+	},
+	"response": {
+		"status": 200,
+		"headers": {
+			"content-type": "application/json",
+			"referer": "http://localhost:8080/api"
+		},
+		"body": "{\"id\":1, \"name\":\"Silmarilion\"}"
+	}
+}
+
