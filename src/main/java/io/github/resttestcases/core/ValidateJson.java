@@ -37,7 +37,7 @@ public class ValidateJson {
             if (error.expected == null) {
                 msg = "not expected field " + error.actual;
             }
-            throw new ComparisonFailure("Comparison failure in <" + error.path.toString() + "> "+msg,
+            throw new ComparisonFailure("Comparison failure in <" + error.path.toString() + "> " + msg,
                     expected.toString(), actual.toString());
 
         }
@@ -92,18 +92,21 @@ public class ValidateJson {
 
             } else if (value.isValueNode()) {
                 Error ret = validJsonPrimitive(path.child(key), value, actual.get(key));
-                if (ret != null)
+                if (ret != null) {
                     return ret;
+                }
 
             } else if (value.isObject()) {
                 Error ret = validJsonObject(path.child(key), value, actual.get(key));
-                if (ret != null)
+                if (ret != null) {
                     return ret;
+                }
 
             } else if (it.getValue().isArray()) {
                 Error ret = validJsonArray(path.child(key), value, actual.get(key));
-                if (ret != null)
+                if (ret != null) {
                     return ret;
+                }
             } else {
                 return new Error(path.child(key), expected, actual.get(key));
             }
@@ -132,7 +135,7 @@ public class ValidateJson {
         boolean inOrder = false;
         if (!expected.isEmpty()) {
             JsonNode node = expected.get(0);
-            if (node.isValueNode() && !node.isNull() && node.textValue().startsWith("!")) {
+            if (node.isValueNode() && !node.isNull() && node.textValue() != null && node.textValue().startsWith("!")) {
                 expected.remove(0);
                 String[] cmds = node.textValue().substring(1).split(";");
 
@@ -290,6 +293,7 @@ public class ValidateJson {
 //            return path.length == 0 ? null : path[path.length - 1];
 //        }
 
+        @Override
         public String toString() {
             return String.join(".", path);
         }

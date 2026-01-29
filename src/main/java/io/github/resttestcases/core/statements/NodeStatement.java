@@ -27,23 +27,23 @@ public interface NodeStatement {
 	
 	/**
 	 * Configures the component based on JSON node representation 
-	 * @param path
-	 * @param parent
-	 * @param node
+	 * @param path - node path
+	 * @param parent node
+	 * @param jsonNode actual
 	 */
 	void config(NodePath path, NodeStatement parent, JsonNode jsonNode);
 	
 	/**
 	 * Valide JSON node 
-	 * @param path
-	 * @param node
+	 * @param path node
+	 * @param jsonNode actual
 	 */
     void valide(NodePath path, JsonNode jsonNode);
     
     
     /**
      * Execute the function associated with this statement
-     * @param context
+     * @param context executiom
      */
     void execute(Context context);
 }

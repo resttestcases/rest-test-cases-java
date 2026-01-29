@@ -1,0 +1,6 @@
+{
+	"nome": "teste",
+	"valores":[1,2,3,4,5],
+	"nomes":["teste1","teste2"],
+	"vazio":[]
+}
