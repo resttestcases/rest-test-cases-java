@@ -1,0 +1,23 @@
+testFindBook:
+  name: Test Find Book
+  description: Get request to find a book
+  request:
+    GET: /books/{pagina}/
+    pathParams:
+      pagina: 1
+    queryParams:
+      titulo: Silmarilion
+      tags:
+      - fantasia
+      - medieval
+    headers:
+        Authorization: Basic Ym9zY236Ym9zY28=
+        Content-Type: application/json; charset=UTF-8
+        referer: http://localhost:8080/api
+    response:
+      status: 200
+      headers:
+        content-type: application/json
+        referer: http://localhost:8080/api
+      bodyJson: 
+        {"id":2, "name":"Silmarilion"}

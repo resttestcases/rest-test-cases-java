@@ -50,8 +50,9 @@ public class ValidateJson {
             return validJsonObject(new Path(), expected, actual);
         } else if (expected.isArray()) {
             return validJsonArray(new Path(), expected, actual);
+        } else {
+            return expected.equals(actual) ? null : new Error(path, expected, actual);
         }
-        return null;
     }
 
     private static Error validJsonPrimitive(Path path, JsonNode expected, JsonNode actual) {
@@ -85,7 +86,8 @@ public class ValidateJson {
             JsonNode value = it.getValue();
             actualFields.remove(key);
 
-            if ("...".equals(key) && "?".equals(value.textValue())) {
+            if (("...".equals(key) || "*".equals(key)) && ("?".equals(value.textValue()))
+                    || "*".equals(value.textValue())) {
                 acceptMoreFields = true;
             } else if (value.isNull() && actual.get(key) != null && !actual.get(key).isNull()) {
                 return new Error(path.child(key), expected, actual.get(key));
@@ -170,7 +172,7 @@ public class ValidateJson {
         int i = 0;
         for (JsonNode it : expected) {
 
-            if (it.isValueNode() && "...".equals(it.textValue())) {
+            if (it.isValueNode() && ("...".equals(it.textValue()) || "*".equals(it.textValue()))) {
                 acceptAny = true;
             } else {
                 Error aux = existeInArray(path.child("[" + i + "]"), it, actual);
@@ -194,7 +196,7 @@ public class ValidateJson {
         int indexActual = 0;
         for (JsonNode it : expected) {
 
-            if (it.isValueNode() && "...".equals(it.textValue())) {
+            if (it.isValueNode() && ("...".equals(it.textValue()) || "*".equals(it.textValue()))) {
                 acceptMore = true;
             } else {
 

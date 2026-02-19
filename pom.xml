@@ -8,7 +8,7 @@
 
     <groupId>io.github.resttestcases</groupId>
     <artifactId>rest-test-cases-java</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>jar</packaging>
 
     <name>Rest Test Cases - Java Version</name>

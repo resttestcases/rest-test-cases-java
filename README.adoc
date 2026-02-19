@@ -125,12 +125,12 @@ test<id optional>:                             #Required. Define a test or a tes
             <paramNameN>: <path do arquivo do resource>
         body: <conteudo>
 
-        response: (*)                           #Optional, verify the response
-            status: <http status code>,     #Optional, verify the status code
-            headers:                            #Optional, verify response headers
+        response: (*)                          #Optional, verify the response
+            status: <http status code>,        #Optional, verify the status code
+            headers:                           #Optional, verify response headers
                 <paramNameN>: <paramValueN>                
-            body: < body>                       #Optional, verify the body of the response in text format
-            bodyJson: <json body>               #Optional, verify the body of the response in json format, more details below."
+            body: < body>                      #Optional, verify the body of the response in text format
+            bodyJson: <json body>              #Optional, verify the body of the response in json format, accept string or json,  more details below."
             
             
 ----
@@ -173,7 +173,7 @@ The next example includes handling for some special cases:
     "department":{
         "id":"1",
         "name":"Sales"
-        "..."                       #Wildcard "..." accepts any items or fields undeclared. Ignore additional properties
+        "..." : "?"                 #Wildcard "...":"?" or "*":"*" accepts any items or fields undeclared. Ignore additional properties
     },
     "roles":[
         "!inOrder;length:18",       #Wildcard "!inOrder force list in order, wildcard "!length" verify length array  
@@ -218,7 +218,7 @@ The current version was developed for use in Java projects and has dependencies 
     <dependency>
         <groupId>io.github.resttestcases</groupId>
         <artifactId>rest-test-cases-java</artifactId>
-        <version>1.0.0</version>
+        <version>0.1.2</version>
         <scope>test</scope>
     </dependency>
 ----
@@ -229,11 +229,11 @@ The current version was developed for use in Java projects and has dependencies 
 testGetUserById:                                # starts a test
     request:                                    # prepares the request for RestAssured
          GET: http://api.example.com/users/     # configures the method and URL
-         queryParams:                          # configures the parameters
+         queryParams:                           # configures the parameters
             name: John Doe
             age: 30
          response:                              # handles the response
-            status: 200                    # checks the status code
+            status: 200                         # checks the status code
             body: !                             # checks if the body matches the expected
                 [
                     {   

@@ -186,8 +186,6 @@ public class TestValidateJson {
         valid("test_array_number_expected.json", "test_array_number_actual.json");
     }
 
-//    .json .json
-
 //
 //	@Test
 //	public void test_equals(){

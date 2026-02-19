@@ -27,21 +27,22 @@ import io.restassured.response.Response;
 
 public class ResponseBodyStatement extends LeafNodeStatement {
 
-	private String expected;
+    private String expected;
 
-	@Override
-	public void config(NodePath pathInit, NodeStatement parentInit, JsonNode node) {
-		super.config(pathInit, parentInit, node);
-		this.expected = node.asText();
-		if (this.expected == null)
-			this.expected = node.toString();
-	}
+    @Override
+    public void config(NodePath pathInit, NodeStatement parentInit, JsonNode node) {
+        super.config(pathInit, parentInit, node);
+        this.expected = node.asText();
+        if (this.expected == null || this.expected.isEmpty()) {
+            this.expected = node.toString();
+        }
+    }
 
-	@Override
-	public void execute(Context context) {
-		logger.debug("Valid response {}", path.getLast());
-		Response response = context.getParam(Response.class.getName());
-		String actual = response.getBody().asString();
-		assertEquals("Not Equals " + path.toString(), expected, actual);
-	}
+    @Override
+    public void execute(Context context) {
+        logger.debug("Valid response {}", path.getLast());
+        Response response = context.getParam(Response.class.getName());
+        String actual = response.getBody().asString();
+        assertEquals("Not Equals " + path.toString(), expected, actual);
+    }
 }
