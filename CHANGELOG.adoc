@@ -4,7 +4,7 @@
 - *v0.1.2* - FIX ResponseBody and ResponseBodyJson accept json in yaml
 
 * Fix Bug with Missing Node
-* Fix Bug 
+* Fix Bug in bodyJson not accept json
 
 
 - *v0.1.1* - FIX 
